@@ -12,7 +12,7 @@
 				</tr>
 				<% @posts.each do |post| %>
 				<tr>
-					<td> <%= post.titulo %> </td>		
+					<td> <%= link_to  post.titulo, post %> </td>		
 					<td> <%= post.cuerpo %> </td>
 				</tr>
 				<% end %>
