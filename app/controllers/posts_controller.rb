@@ -30,8 +30,23 @@ class PostsController < ApplicationController
 			redirect_to posts_path, notice: "El post fue modificadoo con EXITO"
 		else
 			render :edit
+
 		end
 	end
+
+	def destroy
+		@posts = Post.find(params[:id])
+		post.destroy
+
+		redirect_to posts_path, notice: "El post fue eliminado con EXITO"
+	end
+
+	def destroy
+	  posts = Post.find(params[:id])
+	  Post.destroy
+	  redirect_to posts_path, notice: "Post Eliminado con Éxito"
+	end
+
 
 	private 
 		def post_params
