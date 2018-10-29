@@ -14,8 +14,15 @@
                        <p><%= post.updated_at.strftime("%Y-%m-%d") %></p> 
                        <span class="post-description"><%= post.cuerpo %></span> 
                        <div class="actions">       
-                            <td><%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_post_path(post) %> </td>
-                            <td><%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>  </td>
+                            <td>
+                              <%= link_to "<span class='glyphicon glyphicon-pencil'></span>".html_safe, edit_post_path(post) %> 
+                            <td><%= link_to "Editar", edit_post_path(post) %></td>
+
+                            </td>
+                            <td>
+                              <%= link_to "<span class='glyphicon glyphicon-trash'></span>".html_safe, post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este post?" } %>
+                              <%= link_to "Eliminar", post, method: :delete, data: { confirm: "¿Estás seguro de eliminar este producto?" } %>
+                            </td>
                         </div>
                      </tr>
                   </div>

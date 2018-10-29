@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	def index
-		@posts = Post.all
+  		@posts= Post.all.order('created_at ASC') 
 	end
 
 	def new
@@ -25,26 +25,21 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@posts = Post.find(params[:id])
-		if @posts.update(post_params)
+		posts = Post.find(params[:id])
+		if posts.update(post_params)
 			redirect_to posts_path, notice: "El post fue modificadoo con EXITO"
 		else
 			render :edit
 		end
 	end
 
-	def destroy
-		posts = Post.find(params[:id])
-		post.destroy
+ 	
+  	def destroy
+  	  posts = Post.find(params[:id])
+  	  posts.destroy
 
-		redirect_to posts_path, notice: "El post fue eliminado con EXITO"
-	end
-
-	def destroy
-	  posts = Post.find(params[:id])
-	  Post.destroy
-	  redirect_to posts_path, notice: "Post Eliminado con Éxito"
-	end
+  	  redirect_to posts_path, notice: "El post  fue eliminado con éxito"
+  	end
 
 	private 
 		def post_params
