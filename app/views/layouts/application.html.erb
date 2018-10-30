@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>Sb</title>
-    <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
   </head>
 
   <body>
@@ -13,7 +12,11 @@
   		<div class="alert alert-info"> <%= flash[:notice] %> </div>
   	<% end %>
 
+
+    <% if signed_in? %>
+        <div>Hola <%= current_user.name %></div>
+    <% end %>
+
     <%= yield %>
   </body>
-	
 </html>

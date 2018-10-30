@@ -7,12 +7,16 @@ Rails.application.routes.draw do
 #  patch '/posts/:id', to: 'posts#update'
 #  delete '/posts/:id', to: 'posts#destroy'
 
-  resources :posts
   root 'posts#index'
 
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  
   resources :users, only: [:new, :create]
-
+  resources :posts
   devise_for :users
+
+  get 'sessions/new'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
  
